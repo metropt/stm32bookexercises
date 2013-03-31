@@ -1,4 +1,4 @@
-int i = 0;
+ int i = 0;
 int off = 5;
 
 void inc(void){
