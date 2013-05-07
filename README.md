@@ -1,20 +1,6 @@
-STM32-Template
+STM32-Solutions
 ==============
 
-A Build template for projects using the stm32vl discovery board, 
-CodeSourcery gnu toolchain, and the STM32F10x Standard Peripheral Library.
+Solutions for the exercises purpose at book https://www.cs.indiana.edu/classes/c335-geobrown/doc/book.pdf from course http://homes.soic.indiana.edu/geobrown/c335.php.
 
-To test:
-
-   (1) install the toolchain and libarary.
-   (2) change the TOOLROOT and LIBROOT paths in Makefile.common
-   (3) cd to Demo
-   (4) type make
-
-To create new projects
-
-   (1) clone the Demo directory (name the directory appropriately)
-   (2) change TEMPLATEROOT in the cloned makefile to point to the 
-       template directory
-   (3) modify as needed, adding any needed library objects to the OBJ 
-       list in the Makefile
+The code wasn't reviewed by the book author!
