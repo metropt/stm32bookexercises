@@ -20,12 +20,12 @@ void eepromInit(){
   
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
 
-  GPIO_InitStructure.GPIO_Pin=GPIO_Pin_10;
+  GPIO_InitStructure.GPIO_Pin=EEPROM_CS;
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-  GPIO_Init(GPIOC,&GPIO_InitStructure);
+  GPIO_Init(EEPROM_PORT,&GPIO_InitStructure);
   
-  GPIO_WriteBit(GPIOC, GPIO_Pin_10, 1); 
+  GPIO_WriteBit(EEPROM_PORT, EEPROM_CS, 1); 
 }
 
 void eepromWriteEnable(){

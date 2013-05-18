@@ -17,10 +17,10 @@ int main(void)
     //for (i=0; i<8; i++) {
       for (j=0; j<34; j++)
 	txbuf[j] = j;
-      eepromWrite(txbuf, 30, 1000);
+      eepromWrite(txbuf, 32, 1024);
       //eepromWrite(txbuf, 32, 0);
       //eepromWrite(txbuf, 32, 32);
-      eepromRead(rxbuf, 35, 1000);
+      eepromRead(rxbuf, 32, 1024);
       //GPIO_WriteBit(GPIOC, GPIO_Pin_10, 0);
       //spiReadWrite(SPI2, rxbuf, txbuf, 4, SPI_SLOW);
       //GPIO_WriteBit(GPIOC, GPIO_Pin_10, 1);
