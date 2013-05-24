@@ -11,21 +11,12 @@ int main(void)
     ST7735_init();
     while(1){
       
-      //uint16_t colors = RED;
-      //ST7735_fillFast(&colors);
       fillScreen(RED);
-      Delay(2000);
+      Delay(1000);
       fillScreen(GREEN);
-      Delay(2000);
+      Delay(1000);
       fillScreen(BLUE);
-      //colors = GREEN;
-      //ST7735_fillFast(&colors);
-      Delay(2000);
-      fillScreen(BLACK);
-      Delay(2000);
-      fillScreen(YELLOW);
-      Delay(2000);
-      
+      Delay(1000);
       
     }
     return 0;

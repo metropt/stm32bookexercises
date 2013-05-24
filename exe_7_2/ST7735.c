@@ -162,6 +162,16 @@ void ST7735_backLight(uint8_t on)
     GPIO_WriteBit(LCD_PORT_BKL,GPIO_PIN_BKL, HIGH);
 }
 
+void ST7735_putChar(){
+  /*int x,y;
+  uint8_t AA[] = {0x7C, 0x12, 0x11, 0x12, 0x7C};
+  for(x=0; x<5; x++){
+    for(y=0; y<8; x++){
+      
+    }
+  }*/
+}
+
 static __IO uint32_t TimmingDelay;
 
 void Delay(uint32_t nTime){
