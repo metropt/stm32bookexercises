@@ -355,7 +355,7 @@ DSTATUS disk_initialize (
 
 	Speed = SPI_SLOW;
 	
-
+	spiInit(SD_SPI);
 	INIT_PORT();				/* Initialize control port */
 	for (n = 10; n; n--) rcvr_mmc(buf, 1);	/* 80 dummy clocks */
 
