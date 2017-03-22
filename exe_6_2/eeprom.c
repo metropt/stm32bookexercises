@@ -30,6 +30,8 @@ void eepromInit(){
 
 void eepromWriteEnable(){
   uint8_t cmd = cmdWREN;
+
+  while (WIP(eepromReadStatus()));
   
   GPIO_WriteBit(EEPROM_PORT, EEPROM_CS, 0);
   spiReadWrite(EEPROM_SPI, 0, &cmd, 1, EEPROM_SPEED);
@@ -67,9 +69,10 @@ void eepromWriteStatus(uint8_t status){
 
 int eepromWrite(uint8_t *buf, uint8_t cnt, uint16_t offset){
   uint8_t cmd[] = {cmdWRITE};
+  uint8_t cntLeft = cnt;
   
-  if(cnt > (0x20 - (0x1f & offset)))
-    cnt = 0x20 - (0x1f & offset);
+  if(cnt > (0x10 - (0x0f & offset)))
+    cnt = 0x10 - (0x0f & offset);
     
   while (WIP(eepromReadStatus()));
   
@@ -80,8 +83,12 @@ int eepromWrite(uint8_t *buf, uint8_t cnt, uint16_t offset){
   spiReadWrite16(EEPROM_SPI, 0, &offset, 1, EEPROM_SPEED);
   spiReadWrite(EEPROM_SPI, 0, buf, cnt, EEPROM_SPEED);
   GPIO_WriteBit(EEPROM_PORT, EEPROM_CS, 1);
-  
-  return cnt;
+
+  cntLeft -= cnt;
+  if (cntLeft == 0)
+    return cnt;
+
+  return cnt + eepromWrite(buf + cnt, cntLeft, offset + cnt);
 }
 
 int eepromRead(uint8_t *buf, uint8_t cnt, uint16_t offset){
